@@ -4,6 +4,8 @@ sed -i 's/6800/'"${ARIA2_EXTERNAL_PORT}"'/g' /usr/local/www/aria2/js/aria-ng*.js
 RPC_SECRET_BASE64=$(echo -n ${RPC_SECRET}|base64)
 sed -i 's/secret:\"\"/secret:\"'"${RPC_SECRET_BASE64}"'\"/g' /usr/local/www/aria2/js/aria-ng*.js
 
+aria2c --peer-id-prefix=-qB4250- --user-agent=qBittorrent/4.2.5 \
+
 if [ "$ARIA2_SSL" = "true" ]; then
 echo "Start aria2 with secure config"
 
